@@ -1,0 +1,24 @@
+<svg width="600" height="600" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="600" rx="48" fill="#020617"/>
+  <circle cx="170" cy="220" r="80" fill="#0F172A"/>
+  <circle cx="430" cy="220" r="80" fill="#0F172A"/>
+  <rect x="120" y="180" width="260" height="40" rx="20" fill="#111827"/>
+  <rect x="220" y="300" width="160" height="40" rx="20" fill="#1D4ED8"/>
+  <rect x="160" y="360" width="280" height="24" rx="12" fill="#111827"/>
+  <rect x="190" y="410" width="220" height="24" rx="12" fill="#111827"/>
+  <circle cx="170" cy="220" r="16" fill="#E5E7EB"/>
+  <circle cx="430" cy="220" r="16" fill="#E5E7EB"/>
+  <rect x="150" y="210" width="16" height="4" rx="2" fill="#E5E7EB"/>
+  <rect x="445" y="210" width="16" height="4" rx="2" fill="#E5E7EB"/>
+  <rect x="162" y="232" width="12" height="4" rx="2" fill="#E5E7EB"/>
+  <rect x="426" y="232" width="12" height="4" rx="2" fill="#E5E7EB"/>
+  <rect x="248" y="192" width="120" height="16" rx="8" fill="#1F2937"/>
+  <rect x="248" y="332" width="104" height="8" rx="4" fill="#60A5FA"/>
+  <rect x="206" y="460" width="188" height="4" rx="2" fill="#4B5563"/>
+  <text x="300" y="110" text-anchor="middle" fill="#E5E7EB" font-size="28" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+    Game Hut CRM
+  </text>
+  <text x="300" y="140" text-anchor="middle" fill="#9CA3AF" font-size="14" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+    Manage games, rooms and orders
+  </text>
+</svg>

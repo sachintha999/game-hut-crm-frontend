@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 
 type SidebarProps = {
@@ -10,6 +11,7 @@ type SidebarProps = {
 export function Sidebar({ isOpen, onClose }: SidebarProps) {
   const router = useRouter();
   const pathname = usePathname();
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
   const baseButtonClasses =
     "flex w-full items-center rounded-md px-3 py-2 text-left text-xs font-medium transition-colors";
   const inactiveClasses =
@@ -19,6 +21,15 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
 
   return (
     <>
+      {isLoggingOut && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60">
+          <div className="flex flex-col items-center gap-3 rounded-lg bg-zinc-900 px-6 py-4 text-xs text-zinc-100 shadow-lg">
+            <div className="h-7 w-7 animate-spin rounded-full border-2 border-zinc-700 border-t-blue-500" />
+            <p>Logging out...</p>
+          </div>
+        </div>
+      )}
+
       {/* Sidebar overlay for mobile */}
       {isOpen && (
         <div
@@ -83,6 +94,19 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
             Signed in as
           </p>
           <p>admin@gamehut.lk</p>
+
+          <button
+            className="mt-3 w-full rounded-md border border-zinc-200 bg-white px-3 py-2 text-xs font-medium text-zinc-600 shadow-sm hover:bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300"
+            onClick={() => {
+              if (isLoggingOut) return;
+              setIsLoggingOut(true);
+              setTimeout(() => {
+                router.push("/");
+              }, 700);
+            }}
+          >
+            Log out
+          </button>
         </div>
       </aside>
     </>
