@@ -52,7 +52,12 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
           >
             <span>Dashboard</span>
           </button>
-          <button className={`${baseButtonClasses} ${inactiveClasses}`}>
+          <button
+            className={`${baseButtonClasses} ${
+              pathname === "/orders" ? activeClasses : inactiveClasses
+            }`}
+            onClick={() => router.push("/orders")}
+          >
             <span>Orders</span>
           </button>
           <button
