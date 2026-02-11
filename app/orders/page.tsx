@@ -8,8 +8,8 @@ export default function OrdersPage() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const timeout = setTimeout(() => setIsLoading(false), 700);
-    return () => clearTimeout(timeout);
+    const timeoutId = setTimeout(() => setIsLoading(false), 700);
+    return () => clearTimeout(timeoutId);
   }, []);
 
   return (
@@ -202,4 +202,3 @@ export default function OrdersPage() {
     </main>
   );
 }
-

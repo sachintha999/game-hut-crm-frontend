@@ -8,8 +8,8 @@ export default function RoomsPage() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const timeout = setTimeout(() => setIsLoading(false), 700);
-    return () => clearTimeout(timeout);
+    const timeoutId = setTimeout(() => setIsLoading(false), 700);
+    return () => clearTimeout(timeoutId);
   }, []);
 
   return (
@@ -28,7 +28,7 @@ export default function RoomsPage() {
             </div>
           </div>
         ) : (
-          <div className="mx-auto w-full space-y-8">
+        <div className="mx-auto w-full space-y-8">
             {/* Top bar / mobile toggle */}
             <div className="mb-4 flex items-center justify-between lg:mb-6">
               <button
@@ -213,4 +213,3 @@ export default function RoomsPage() {
     </main>
   );
 }
-
