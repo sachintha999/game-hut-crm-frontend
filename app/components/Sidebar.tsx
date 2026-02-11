@@ -63,7 +63,12 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
           >
             <span>Admin</span>
           </button>
-          <button className={`${baseButtonClasses} ${inactiveClasses}`}>
+          <button
+            className={`${baseButtonClasses} ${
+              pathname === "/rooms" ? activeClasses : inactiveClasses
+            }`}
+            onClick={() => router.push("/rooms")}
+          >
             <span>Rooms</span>
           </button>
         </nav>
