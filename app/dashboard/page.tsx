@@ -6,6 +6,7 @@ import { Sidebar } from "../components/Sidebar";
 export default function DashboardPage() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [sriLankaTime, setSriLankaTime] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const updateTime = () => {
@@ -21,7 +22,12 @@ export default function DashboardPage() {
     updateTime();
     const intervalId = setInterval(updateTime, 1000);
 
-    return () => clearInterval(intervalId);
+    const timeout = setTimeout(() => setIsLoading(false), 700);
+
+    return () => {
+      clearInterval(intervalId);
+      clearTimeout(timeout);
+    };
   }, []);
 
   return (
@@ -33,20 +39,29 @@ export default function DashboardPage() {
 
       {/* Main content */}
       <div className="flex-1 px-4 py-4 sm:px-6 sm:py-6 lg:px-8 lg:py-8">
-        {/* Top bar / mobile toggle */}
-        <div className="mb-4 flex items-center justify-between lg:mb-6">
-          <button
-            className="rounded-md border border-zinc-200 bg-white px-3 py-2 text-xs font-medium text-zinc-600 shadow-sm hover:bg-zinc-100 lg:hidden dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300"
-            onClick={() => setSidebarOpen(true)}
-          >
-            Menu
-          </button>
-          <span className="text-xs text-zinc-500 sm:text-sm">
-            Fully responsive hardcoded dashboard
-          </span>
-        </div>
+        {isLoading ? (
+          <div className="flex h-full min-h-[60vh] items-center justify-center">
+            <div className="flex flex-col items-center gap-3">
+              <div className="h-8 w-8 animate-spin rounded-full border-2 border-zinc-300 border-t-blue-600" />
+              <p className="text-xs text-zinc-500">Loading dashboard...</p>
+            </div>
+          </div>
+        ) : (
+          <>
+            {/* Top bar / mobile toggle */}
+            <div className="mb-4 flex items-center justify-between lg:mb-6">
+              <button
+                className="rounded-md border border-zinc-200 bg-white px-3 py-2 text-xs font-medium text-zinc-600 shadow-sm hover:bg-zinc-100 lg:hidden dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300"
+                onClick={() => setSidebarOpen(true)}
+              >
+                Menu
+              </button>
+              <span className="text-xs text-zinc-500 sm:text-sm">
+                Fully responsive hardcoded dashboard
+              </span>
+            </div>
 
-        <div className="mx-auto max-w-6xl space-y-8">
+            <div className="mx-auto w-full space-y-8">
           {/* Header */}
           <header className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
             <div>
@@ -233,6 +248,8 @@ export default function DashboardPage() {
             </div>
           </section>
         </div>
+          </>
+        )}
       </div>
     </main>
   );

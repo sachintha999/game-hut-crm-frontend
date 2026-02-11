@@ -10,7 +10,6 @@ type SidebarProps = {
 export function Sidebar({ isOpen, onClose }: SidebarProps) {
   const router = useRouter();
   const pathname = usePathname();
-
   const baseButtonClasses =
     "flex w-full items-center rounded-md px-3 py-2 text-left text-xs font-medium transition-colors";
   const inactiveClasses =
