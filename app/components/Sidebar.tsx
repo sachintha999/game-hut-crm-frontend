@@ -83,6 +83,13 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
             Signed in as
           </p>
           <p>admin@gamehut.lk</p>
+
+          <button
+            className="mt-3 w-full rounded-md border border-zinc-200 bg-white px-3 py-2 text-xs font-medium text-zinc-600 shadow-sm hover:bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300"
+            onClick={() => router.push("/")}
+          >
+            Log out
+          </button>
         </div>
       </aside>
     </>
